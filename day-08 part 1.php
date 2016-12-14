@@ -70,7 +70,7 @@ function rotatecol($col)
 
 
 
-function drawtable()
+function drawtable($show=TRUE)
 {
 	global $cell; 
 	$counter = 1;
@@ -90,8 +90,18 @@ function drawtable()
 				$background = "white";
 				$foreground = "black";
 			}
+			$counter++;
+			
+			if ($show == TRUE)
+			{
+				$showcounter = $counter;
+			}
+			else
+			{
+				$showcounter = "";
+			}
 			echo "<td style='width: 30px; height: 30px; border: 1px solid black; background: $background'>";
-			echo "&nbsp;"; echo "<small style='color: " . $foreground . "'>" . $counter++ ."</small>"; 
+			echo "&nbsp;"; echo "<small style='color: " . $foreground . "'>" . $showcounter ."</small>"; 
 			echo "</td>";
 			
 			if ($x % 50 == 0)
@@ -160,7 +170,7 @@ foreach ($cell as $thiscell)
 
 echo "<p>$counter segments are lit up</p>";
 
-
+drawtable($show=FALSE);
 ?>
 
 <h1>DONE</h1>
