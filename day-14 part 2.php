@@ -8,7 +8,7 @@ ini_set('max_execution_time', 120); //
 
 
 $input = "qzyelonm";
-$input = "abc";
+// $input = "abc";
 
 $solution = FALSE; 
 
@@ -18,6 +18,8 @@ $foundsolution = 0;
 
 $storedhashes = array(); 
 
+include("./day-14 part 2 hashes.php");
+
 function hashit($string)
 {
 	global $storedhashes;
@@ -26,6 +28,8 @@ function hashit($string)
 		{ 
 				return $storedhashes[$string]; 
 		}
+		
+		echo " ? ";
 	
 	$stretched = $string; 
 	
@@ -75,7 +79,7 @@ while ($solution == FALSE)
 	{
 			
 		for ($totest = $index+1; $totest <= $index + 1001; $totest++)
-		{
+		{			
 			$string = $input . $totest;
 			$hash = hashit($string);
 						
@@ -90,8 +94,11 @@ while ($solution == FALSE)
 	
 	if ($index % 1000 == 0) { echo ". "; flush(); }
 	
-	if ($foundsolution == 64) { $solution = true; }
+	if ($foundsolution == 66) { $solution = true; }
 }
 
 ?>
 <h1>DONE</h1>
+
+<?
+?>
